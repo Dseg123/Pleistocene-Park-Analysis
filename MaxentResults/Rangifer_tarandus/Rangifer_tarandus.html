@@ -1,0 +1,91 @@
+<title>Maxent model for Rangifer_tarandus</title>
+<CENTER><H1>Maxent model for Rangifer_tarandus</H1></CENTER>
+<br> This page contains some analysis of the Maxent model for Rangifer_tarandus, created Sat May 06 15:11:42 EDT 2023 using Maxent version 3.4.4.  If you would like to do further analyses, the raw data used here is linked to at the end of this page.<br>
+<br><HR><H2>Analysis of omission/commission</H2>
+The following picture shows the omission rate and predicted area as a function of the cumulative threshold.  The omission rate is is calculated both on the training presence records, and (if test data are used) on the test records.  The omission rate should be close to the predicted omission, because of the definition of the cumulative threshold.
+<br><img src="plots/Rangifer_tarandus_omission.png"><br>
+<br> The next picture is the receiver operating characteristic (ROC) curve for the same data.  Note that the specificity is defined using predicted area, rather than true commission (see the paper by Phillips, Anderson and Schapire cited on the help page for discussion of what this means).  This implies that the maximum achievable AUC is less than 1.  If test data is drawn from the Maxent distribution itself, then the maximum possible test AUC would be 0.869 rather than 1; in practice the test AUC may exceed this bound.
+<br><img src="plots/Rangifer_tarandus_roc.png"><br>
+<br>
+<br>
+Some common thresholds and corresponding omission rates are as follows.  If test data are available, binomial probabilities are calculated exactly if the number of test samples is at most 25, otherwise using a normal approximation to the binomial.  These are 1-sided p-values for the null hypothesis that test points are predicted no better than by a random prediction with the same fractional predicted area.  The "Balance" threshold minimizes 6 * training omission rate + .04 * cumulative threshold + 1.6 * fractional predicted area.<br>
+<br><table border cols=6 cellpadding=3><tr><th>Cumulative threshold</th><th>Cloglog threshold</th><th>Description</th><th>Fractional predicted area</th><th>Training omission rate</th><th>Test omission rate</th><th>P-value</th><tr align=center><td>1.000</td><td>0.082</td><td>Fixed cumulative value 1</td><td>0.346</td><td>0.001</td><td>0.001</td><td>0E0</td><tr align=center><td>5.000</td><td>0.297</td><td>Fixed cumulative value 5</td><td>0.282</td><td>0.025</td><td>0.025</td><td>0E0</td><tr align=center><td>10.000</td><td>0.458</td><td>Fixed cumulative value 10</td><td>0.249</td><td>0.086</td><td>0.086</td><td>0E0</td><tr align=center><td>0.216</td><td>0.014</td><td>Minimum training presence</td><td>0.409</td><td>0.000</td><td>0.000</td><td>0E0</td><tr align=center><td>11.139</td><td>0.485</td><td>10 percentile training presence</td><td>0.244</td><td>0.100</td><td>0.100</td><td>0E0</td><tr align=center><td>19.924</td><td>0.602</td><td>Equal training sensitivity and specificity</td><td>0.209</td><td>0.209</td><td>0.208</td><td>0E0</td><tr align=center><td>4.557</td><td>0.278</td><td>Maximum training sensitivity plus specificity</td><td>0.287</td><td>0.020</td><td>0.021</td><td>0E0</td><tr align=center><td>20.005</td><td>0.603</td><td>Equal test sensitivity and specificity</td><td>0.209</td><td>0.210</td><td>0.209</td><td>0E0</td><tr align=center><td>4.090</td><td>0.257</td><td>Maximum test sensitivity plus specificity</td><td>0.291</td><td>0.016</td><td>0.015</td><td>0E0</td><tr align=center><td>1.153</td><td>0.096</td><td>Balance training omission, predicted area and threshold value</td><td>0.340</td><td>0.001</td><td>0.001</td><td>0E0</td><tr align=center><td>2.240</td><td>0.166</td><td>Equate entropy of thresholded and original distributions</td><td>0.316</td><td>0.004</td><td>0.003</td><td>0E0</td></table><br>
+<br>(A link to the Explain tool was not made for this model.  The model uses product features, while the Explain tool can only be used for additive models.)<br><br>
+<br><HR><H2>Response curves</H2>
+<br>These curves show how each environmental variable affects the Maxent prediction.
+The 
+curves show how the predicted probability of presence changes as each environmental variable is varied, keeping all other environmental variables at their average sample value. Click on a response curve to see a larger version.  Note that the curves can be hard to interpret if you have strongly correlated variables, as the model may depend on the correlations in ways that are not evident in the curves.  In other words, the curves show the marginal effect of changing exactly one variable, whereas the model may take advantage of sets of variables changing together.<br><br>
+<a href = "plots/Rangifer_tarandus_Var1.png"> <img src="plots/Rangifer_tarandus_Var1_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var10.png"> <img src="plots/Rangifer_tarandus_Var10_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var11.png"> <img src="plots/Rangifer_tarandus_Var11_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var12.png"> <img src="plots/Rangifer_tarandus_Var12_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var13.png"> <img src="plots/Rangifer_tarandus_Var13_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var14.png"> <img src="plots/Rangifer_tarandus_Var14_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var15.png"> <img src="plots/Rangifer_tarandus_Var15_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var16.png"> <img src="plots/Rangifer_tarandus_Var16_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var17.png"> <img src="plots/Rangifer_tarandus_Var17_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var18.png"> <img src="plots/Rangifer_tarandus_Var18_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var19.png"> <img src="plots/Rangifer_tarandus_Var19_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var2.png"> <img src="plots/Rangifer_tarandus_Var2_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var3.png"> <img src="plots/Rangifer_tarandus_Var3_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var4.png"> <img src="plots/Rangifer_tarandus_Var4_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var5.png"> <img src="plots/Rangifer_tarandus_Var5_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var6.png"> <img src="plots/Rangifer_tarandus_Var6_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var7.png"> <img src="plots/Rangifer_tarandus_Var7_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var8.png"> <img src="plots/Rangifer_tarandus_Var8_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var9.png"> <img src="plots/Rangifer_tarandus_Var9_thumb.png"></a>
+<br>
+<br>In contrast to the above marginal response curves, each of the following curves represents a different model, namely, a Maxent model created using only the corresponding variable.  These plots reflect the dependence of predicted suitability both on the selected variable and on dependencies induced by correlations between the selected variable and other variables.  They may be easier to interpret if there are strong correlations between variables.<br><br>
+<a href = "plots/Rangifer_tarandus_Var1_only.png"> <img src="plots/Rangifer_tarandus_Var1_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var10_only.png"> <img src="plots/Rangifer_tarandus_Var10_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var11_only.png"> <img src="plots/Rangifer_tarandus_Var11_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var12_only.png"> <img src="plots/Rangifer_tarandus_Var12_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var13_only.png"> <img src="plots/Rangifer_tarandus_Var13_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var14_only.png"> <img src="plots/Rangifer_tarandus_Var14_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var15_only.png"> <img src="plots/Rangifer_tarandus_Var15_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var16_only.png"> <img src="plots/Rangifer_tarandus_Var16_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var17_only.png"> <img src="plots/Rangifer_tarandus_Var17_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var18_only.png"> <img src="plots/Rangifer_tarandus_Var18_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var19_only.png"> <img src="plots/Rangifer_tarandus_Var19_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var2_only.png"> <img src="plots/Rangifer_tarandus_Var2_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var3_only.png"> <img src="plots/Rangifer_tarandus_Var3_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var4_only.png"> <img src="plots/Rangifer_tarandus_Var4_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var5_only.png"> <img src="plots/Rangifer_tarandus_Var5_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var6_only.png"> <img src="plots/Rangifer_tarandus_Var6_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var7_only.png"> <img src="plots/Rangifer_tarandus_Var7_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var8_only.png"> <img src="plots/Rangifer_tarandus_Var8_only_thumb.png"></a>
+<a href = "plots/Rangifer_tarandus_Var9_only.png"> <img src="plots/Rangifer_tarandus_Var9_only_thumb.png"></a>
+<br>
+<br><HR><H2>Analysis of variable contributions</H2><br>
+The following table gives estimates of relative contributions of the environmental variables to the Maxent model.  To determine the first estimate, in each iteration of the training algorithm, the increase in regularized gain is added to the contribution of the corresponding variable, or subtracted from it if the change to the absolute value of lambda is negative.  For the second estimate, for each environmental variable in turn, the values of that variable on training presence and background data are randomly permuted.  The model is reevaluated on the permuted data, and the resulting drop in training AUC is shown in the table, normalized to percentages.  As with the variable jackknife, variable contributions should be interpreted with caution when the predictor variables are correlated.<br>
+<br><table border cols=3><tr><th>Variable</th><th>Percent contribution</th><th>Permutation importance</th><tr align=right><td>Var1</td><td>34.8</td><td>7.9</td></tr><tr align=right><td>Var14</td><td>26.1</td><td>7.6</td></tr><tr align=right><td>Var18</td><td>16.4</td><td>10.8</td></tr><tr align=right><td>Var4</td><td>8.2</td><td>12.6</td></tr><tr align=right><td>Var10</td><td>5.4</td><td>52.5</td></tr><tr align=right><td>Var8</td><td>4</td><td>0</td></tr><tr align=right><td>Var3</td><td>2</td><td>2.2</td></tr><tr align=right><td>Var5</td><td>1.4</td><td>1.2</td></tr><tr align=right><td>Var2</td><td>0.7</td><td>1.3</td></tr><tr align=right><td>Var11</td><td>0.3</td><td>0</td></tr><tr align=right><td>Var12</td><td>0.2</td><td>1.4</td></tr><tr align=right><td>Var7</td><td>0.1</td><td>0</td></tr><tr align=right><td>Var6</td><td>0.1</td><td>0</td></tr><tr align=right><td>Var16</td><td>0.1</td><td>1.6</td></tr><tr align=right><td>Var15</td><td>0.1</td><td>0</td></tr><tr align=right><td>Var9</td><td>0.1</td><td>0.1</td></tr><tr align=right><td>Var19</td><td>0</td><td>0.2</td></tr><tr align=right><td>Var17</td><td>0</td><td>0.4</td></tr><tr align=right><td>Var13</td><td>0</td><td>0</td></tr></table><br><br>
+<br><HR><H2>Raw data outputs and control parameters</H2><br>
+The data used in the above analysis is contained in the next links.  Please see the Help button for more information on these.<br>
+<a href = "Rangifer_tarandus.csv">The model applied to the training environmental layers</a><br>
+<a href = "Rangifer_tarandus.lambdas">The coefficients of the model</a><br>
+<a href = "Rangifer_tarandus_omission.csv">The omission and predicted area for varying cumulative and raw thresholds</a><br>
+<a href = "Rangifer_tarandus_samplePredictions.csv">The prediction strength at the training and (optionally) test presence sites</a><br>
+<a href = "maxentResults.csv">Results for all species modeled in the same Maxent run, with summary statistics and (optionally) jackknife results</a><br>
+<br><br>
+Regularized training gain is 1.152, training AUC is 0.866, unregularized training gain is 1.192.<br>
+Unregularized test gain is 1.193.<br>
+Test AUC is 0.867, standard deviation is 0.001 (calculated as in DeLong, DeLong & Clarke-Pearson 1988, equation 2).<br>
+Algorithm terminated after 500 iterations (733 seconds).<br>
+<br>
+The follow settings were used during the run:<br>
+188750 presence records used for training, 20972 for testing.<br>
+808053 points used to determine the Maxent distribution (background points and presence points).<br>
+Environmental layers used (all continuous): Var1 Var10 Var11 Var12 Var13 Var14 Var15 Var16 Var17 Var18 Var19 Var2 Var3 Var4 Var5 Var6 Var7 Var8 Var9<br>
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500<br>
+Feature types used: hinge product linear quadratic<br>
+responsecurves: true<br>
+outputdirectory: /home/dylaneg/Documents/Programming/WRI117/MaxentResults<br>
+samplesfile: /home/dylaneg/Documents/Programming/WRI117/combined_swd.csv<br>
+environmentallayers: /home/dylaneg/Documents/Programming/WRI117/background.csv<br>
+randomtestpoints: 10<br>
+perspeciesresults: true<br>
+writebackgroundpredictions: true<br>
+appendtoresultsfile: true<br>
+Command line used: <br>
+<br>
+Command line to repeat this species model: java density.MaxEnt nowarnings noprefixes -E "" -E Rangifer_tarandus responsecurves outputdirectory=/home/dylaneg/Documents/Programming/WRI117/MaxentResults samplesfile=/home/dylaneg/Documents/Programming/WRI117/combined_swd.csv environmentallayers=/home/dylaneg/Documents/Programming/WRI117/background.csv randomtestpoints=10 perspeciesresults writebackgroundpredictions appendtoresultsfile<br>
